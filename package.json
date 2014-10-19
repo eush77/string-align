@@ -1,7 +1,7 @@
 {
   "name": "string-align",
   "version": "0.0.0",
-  "description": "Align string with spaces",
+  "description": "Align string with spaces or other characters",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/eush77/string-align",
