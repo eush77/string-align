@@ -1,0 +1,28 @@
+{
+  "name": "string-align",
+  "version": "0.0.0",
+  "description": "Align string with spaces",
+  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/eush77/string-align",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eush77/string-align"
+  },
+  "bugs": {
+    "url": "https://github.com/eush77/string-align/issues"
+  },
+  "keywords": [
+    "string",
+    "align",
+    "center",
+    "left",
+    "right",
+    "width",
+    "format"
+  ],
+  "dependencies": {
+    "repeat-string": "^0.2.2"
+  },
+  "devDependencies": {}
+}
