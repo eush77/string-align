@@ -27,7 +27,7 @@ module.exports = function (string, width, alignment, placeholder) {
   }
 
   alignment = alignment || 'center';
-  placeholder = placeholder || ' ';
+  placeholder = String(placeholder) || ' ';
 
   if (placeholder.length != 1) {
     throw new Error('Placeholder must be of length 1');

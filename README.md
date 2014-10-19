@@ -17,7 +17,7 @@ Align string with whitespace. Whitespace character defaults to ascii space.
 
 ### stringAlign(string, options)
 
-If `string` is not a string, it is converted to.
+If `string` or `placeholder` is not a string, it is converted to.
 
 | Option      | Type                       | Required? | Default    |
 | :---------- | :------------------------- | :-------: | :--------- |
