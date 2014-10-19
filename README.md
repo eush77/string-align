@@ -11,6 +11,29 @@
 
 Align string with whitespace. Whitespace character defaults to ascii space.
 
+## Examples
+
+```js
+> align('foo', 7, 'center')
+'  foo  '
+
+> align('foo', 7, 'left')
+'foo    '
+
+> align('foo', 7, 'right')
+'    foo'
+
+> align('foo', 7, 'center', '_')
+'__foo__'
+
+> align(7, {
+    width: 4,
+    alignment: 'right',
+    placeholder: 0
+  })
+'0007'
+```
+
 ## API
 
 ### stringAlign(string, width, [alignment], [placeholder])
