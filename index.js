@@ -8,7 +8,7 @@ var repeat = require('repeat-string');
  *
  * @arg {*} string - Data to be aligned. Converted to a string.
  * @arg {number} width
- * @arg {"center","left","right"} [alignment="center"]
+ * @arg {"center","left","right","fill"} [alignment="center"]
  * @arg {string} [placeholder=" "]
  */
 module.exports = function (string, width, alignment, placeholder) {
@@ -31,6 +31,10 @@ module.exports = function (string, width, alignment, placeholder) {
 
   if (placeholder.length != 1) {
     throw new Error('Placeholder must be of length 1');
+  }
+
+  if (alignment == 'fill') {
+    return repeat(string, Math.ceil(width / string.length)).slice(0, width);
   }
 
   if (width <= string.length) {

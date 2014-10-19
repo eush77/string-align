@@ -25,6 +25,14 @@ it('should align right', function () {
 });
 
 
+it('should align fill', function () {
+  align('-', 4, 'fill').should.equal('----');
+  align('-=', 4, 'fill').should.equal('-=-=');
+  align('-=', 5, 'fill').should.equal('-=-=-');
+  align('-==-', 3, 'fill').should.equal('-==');
+});
+
+
 it('should accept custom placeholder', function () {
   align(7, 3, 'right', 0).should.equal('007');
 });

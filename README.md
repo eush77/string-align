@@ -23,6 +23,9 @@ Align string with whitespace. Whitespace character defaults to ascii space.
 > align('foo', 7, 'right')
 '    foo'
 
+> align('-=', 7, 'fill')
+'-=-=-=-'
+
 > align('foo', 7, 'center', '_')
 '__foo__'
 
@@ -42,11 +45,11 @@ Align string with whitespace. Whitespace character defaults to ascii space.
 
 If `string` or `placeholder` is not a string, it is converted to.
 
-| Option      | Type                       | Required? | Default    |
-| :---------- | :------------------------- | :-------: | :--------- |
-| width       | number                     | Yes       |            |
-| alignment   | "center", "left", "right"  | No        | `"center"` |
-| placeholder | string                     | No        | `" "`      |
+| Option      | Type                               | Required? | Default    |
+| :---------- | :--------------------------------- | :-------: | :--------- |
+| width       | number                             | Yes       |            |
+| alignment   | "center", "left", "right", "fill"  | No        | `"center"` |
+| placeholder | string                             | No        | `" "`      |
 
 ## Install
 
