@@ -1,6 +1,6 @@
 {
   "name": "string-align",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Align string with whitespace",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
@@ -18,11 +18,14 @@
   "keywords": [
     "string",
     "align",
+    "alignment",
     "center",
     "left",
     "right",
     "width",
-    "format"
+    "format",
+    "whitespace",
+    "space"
   ],
   "dependencies": {
     "repeat-string": "^0.2.2"
