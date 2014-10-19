@@ -13,6 +13,20 @@ var repeat = require('repeat-string');
  */
 module.exports = function (string, width, alignment, placeholder) {
   string = string.toString();
+
+  if (typeof width == 'object') {
+    var options = width;
+
+    width = options.width;
+    alignment = options.alignment;
+    placeholder = options.placeholder;
+  }
+  else if (typeof alignment == 'string' && alignment.length == 1) {
+    placeholder = alignment;
+    alignment = null;
+  }
+
+  alignment = alignment || 'center';
   placeholder = placeholder || ' ';
 
   if (placeholder.length != 1) {
@@ -23,7 +37,7 @@ module.exports = function (string, width, alignment, placeholder) {
     return string;
   }
 
-  if (!alignment || alignment == 'center') {
+  if (alignment == 'center') {
     var left = Math.floor((width - string.length) / 2)
       , right = width - string.length - left;
 
