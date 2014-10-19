@@ -1,7 +1,7 @@
 {
   "name": "string-align",
   "version": "0.0.0",
-  "description": "Align string with spaces or other characters",
+  "description": "Align string with whitespace",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
   "scripts": {
