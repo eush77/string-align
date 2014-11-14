@@ -1,13 +1,13 @@
-# string-align [![Build Status][travis-badge]][travis] [![Dependency Status][david-badge]][david] [![DevDependency Status][david-dev-badge]][david-dev]
+# string-align [![Build Status][travis-badge]][travis] [![Code Climate][codeclimate-badge]][codeclimate] [![Dependency Status][david-badge]][david]
 
 [![npm](https://nodei.co/npm/string-align.png)](https://nodei.co/npm/string-align/)
 
-[travis-badge]: https://travis-ci.org/eush77/string-align.svg
 [travis]: https://travis-ci.org/eush77/string-align
-[david-badge]: https://david-dm.org/eush77/string-align.png
+[travis-badge]: https://travis-ci.org/eush77/string-align.svg
+[codeclimate]: https://codeclimate.com/github/eush77/string-align
+[codeclimate-badge]: https://codeclimate.com/github/eush77/string-align/badges/gpa.svg
 [david]: https://david-dm.org/eush77/string-align
-[david-dev-badge]: https://david-dm.org/eush77/string-align/dev-status.png
-[david-dev]: https://david-dm.org/eush77/string-align#info=devDependencies
+[david-badge]: https://david-dm.org/eush77/string-align.png
 
 Align string with whitespace. Whitespace character defaults to ascii space.
 
