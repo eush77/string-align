@@ -3,6 +3,37 @@
 var repeat = require('repeat-string');
 
 
+var boundedAlignment = function (helper) {
+  return function (string, options) {
+    if (options.width <= string.length) {
+      return string;
+    }
+
+    var whitespace = repeat(options.placeholder, options.width);
+    return helper(string, options, whitespace);
+  };
+};
+
+
+var align = {
+  center: boundedAlignment(function (string, options) {
+    var left = Math.floor((options.width - string.length) / 2)
+      , right = options.width - string.length - left;
+
+    return repeat(options.placeholder, left) + string + repeat(options.placeholder, right);
+  }),
+  left: boundedAlignment(function (string, options, whitespace) {
+    return (string + whitespace).slice(0, options.width);
+  }),
+  right: boundedAlignment(function (string, options, whitespace) {
+    return (whitespace + string).slice(-options.width);
+  }),
+  fill: function (string, options) {
+    return repeat(string, Math.ceil(options.width / string.length)).slice(0, options.width);
+  }
+};
+
+
 /**
  * Align string with whitespace.
  *
@@ -12,51 +43,33 @@ var repeat = require('repeat-string');
  * @arg {string} [placeholder=" "]
  */
 module.exports = function (string, width, alignment, placeholder) {
-  string = string.toString();
-
   if (typeof width == 'object') {
     var options = width;
-
-    width = options.width;
-    alignment = options.alignment;
-    placeholder = options.placeholder;
   }
-  else if (typeof alignment == 'string' && alignment.length == 1) {
-    placeholder = alignment;
-    alignment = null;
+  else {
+    if (typeof alignment == 'string' && alignment.length == 1) {
+      placeholder = alignment;
+      alignment = null;
+    }
+
+    var options = {
+      width: width,
+      alignment: alignment,
+      placeholder: placeholder
+    };
   }
 
-  alignment = alignment || 'center';
-  placeholder = String(placeholder == null ? ' ' : placeholder);
+  options.alignment = options.alignment || 'center';
+  options.placeholder = String(options.placeholder == null ? ' ' : options.placeholder);
 
-  if (placeholder.length != 1) {
+  if (options.placeholder.length != 1) {
     throw new Error('Placeholder must be of length 1');
   }
 
-  if (alignment == 'fill') {
-    return repeat(string, Math.ceil(width / string.length)).slice(0, width);
-  }
-
-  if (width <= string.length) {
-    return string;
-  }
-
-  if (alignment == 'center') {
-    var left = Math.floor((width - string.length) / 2)
-      , right = width - string.length - left;
-
-    return repeat(placeholder, left) + string + repeat(placeholder, right);
+  if (align[options.alignment]) {
+    return align[options.alignment](string.toString(), options);
   }
   else {
-    var whitespace = repeat(placeholder, width);
-
-    if (alignment == 'left') {
-      return (string + whitespace).slice(0, width);
-    }
-    else if (alignment == 'right') {
-      return (whitespace + string).slice(-width);
-    }
+    throw new Error('Invalid alignment type: ' + options.alignment);
   }
-
-  throw new Error('Invalid alignment type: ' + alignment);
 };
